@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+<script type="text/javascript"  src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
+
+<fieldset data-role="controlgroup"  data-type="horizontal" style="float:center;">
+    <a id="full_fare" onclick="get_price()" data-ajax="false" data-inline="true" href="#" data-role="button">Full Fare</a>
+    <a id="half_fare" onclick="get_price1()" data-ajax="false" data-inline="true" href="#" data-role="button">Half Fare</a>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;
+</fieldset>
+
+Prices: $1.25:
+<ul data-role="listview" data-inset="true" >
+    <li><a href="direction_detail.html" rel="external" >61A</a></li>
+    <li><a href="direction_detail.html" rel="external" >75C</a></li>
+    <li><a href="direction_detail.html" rel="external" >64</a></li>
+    <li><a href="direction_detail.html" rel="external" >See More...</a></li>
+</ul>
+
+
+
+
+<br/>
+
+
+<br/><br/><br/>
+
+<br/><br/><br/>
+
+<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
+    <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
+    <div data-role="navbar" class="nav-glyphish" data-grid="c">
+        <ul>
+			<li loadPageDirection()><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
+			<li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" >Transit Tracker</a></li>
+			<li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
+			<li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
+        </ul>
+    </div>
+</div>
