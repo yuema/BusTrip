@@ -1,18 +1,22 @@
 <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+
+<script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
 <script type="text/javascript"  src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
-	
+
 	<div data-role="content">
 		<ul data-role="listview" data-inset="true">
-			<li>6:30am</li>
-			<li>6:45am</li>
-			<li>7:00am</li>
-			<li>7:15am</li>
-			<li>7:30am</li>
-			<li>8:00am</li>
-			<li>8:30am</li>
-			<li>8:45am</li>
-			<li>9:00am</li>
+            <li>71C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CARNEGIE MELLON</li>
+            <li>Next1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6:30am</li>
+			<li>Next2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6:45am</li>
+			<li>Next3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7:00am</li>
+			<li>Next4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7:15am</li>
+			<li>Next5:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:30am</li>
+			<li>Next6:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:00am</li>
+			<li>Next7:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:45am</li>
+			<li>Next8:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9:00am</li>
+			<li>Next9:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9:30am</li>
 			<!-- 
 			<li>9:15am</li>
 			<li>9:30am</li>
@@ -48,10 +52,10 @@
     <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
     <div data-role="navbar" class="nav-glyphish" data-grid="c">
         <ul>
-			<li loadPageDirection()><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
-			<li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" >Transit Tracker</a></li>
-			<li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
-			<li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
+            <li onclick="loadPageDirection()"><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
+            <li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" data-theme="b">Transit Tracker</a></li>
+            <li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
+            <li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
         </ul>
     </div>
 </div>

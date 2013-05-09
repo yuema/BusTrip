@@ -1,6 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
+
     <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
     <link rel="stylesheet" href="css/main.css" />
     
@@ -17,21 +15,11 @@
     		$('#days').show();
     	}
     }
-    
-    function in_out_bound(){
-    	alert('Inbound means entering the city. Outbound means going out of the city.')
-    }
 
 </script>
 
-</head>
 
-<body>
-<div data-role="page">
-    <div data-role="header" data-position="fixed">
-		<h1>Trip Planner</h1>
-	</div>
-	
+
 	<div data-role="content">
 	
 		<label for="select-choice-0" class="select">Bus Route</label>
@@ -49,6 +37,7 @@
 		
 		
 		<br/>
+        <label for="radio-choice-1" class="select">Direction</label>
 		<fieldset data-role="controlgroup"  data-type="horizontal">
 		     	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
 		     	<label for="radio-choice-1">Inbound</label>
@@ -64,7 +53,6 @@
 		<!--<a href="" data-role="button" data-icon="info" data-iconpos="notext">Info</a>-->
 		
 		
-		<br/>		
 		<label for="select-choice-1" class="select">Bus Stop</label>
 		<select name="select-choice-1" id="select-choice-1">
 		   <option value="upitt">University of Pittsburgh</option>
@@ -73,30 +61,26 @@
 		   <option value="forbes">Forbes Ave</option>
 		</select>
 		
-		<br/>
 		
 		<br/>
 		
 		<div style="float:center;">
-		<a id="next_page" data-ajax="false" data-inline="true" href="schedule-result.html" data-role="button" data-icon="search" data-theme="b">Track</a>
+		<a id="next_page" data-ajax="false" data-inline="true" onclick="scheduleResult()" data-role="button" data-icon="search" data-theme="b">Track</a>
 	    </div>
 		
 	</div>
     
 	
 	
-	<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
-	    <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
-		<div data-role="navbar" class="nav-glyphish" data-grid="c">
-		<ul>
-			<li><a href="index.html" id="direction" data-icon="custom" data-ajax="false">Trip Planner</a></li>
-			<li><a href="schedule.html" id="schedule" data-icon="custom" data-theme="b" data-ajax="false">Transit Tracker</a></li>
-			<li><a href="fare.html" id="fare" data-icon="custom" data-ajax="false">Schedule</a></li>
-			<li><a href="my_trips.html" id="my_trips" data-icon="custom" data-ajax="false">PAAC News</a></li>
-		</ul>
-		</div>
-	</div>	
-
+<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
+    <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
+    <div data-role="navbar" class="nav-glyphish" data-grid="c">
+        <ul>
+            <li onclick="loadPageDirection()"><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
+            <li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" data-theme="b">Transit Tracker</a></li>
+            <li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
+            <li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
+        </ul>
+    </div>
 </div>
-</body>
-</html>
+

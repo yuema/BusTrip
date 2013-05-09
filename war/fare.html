@@ -16,67 +16,34 @@
     	$('#to').val(tmp);
     }
     
-    function get_price(){
-            $.ajax({
-                   url: "http://localhost:8080/examples/list1.html",
-                   type: "POST",
-                   dataType: "html"
-                   }).done(function( msg ) {
-                           //$(".nav-glyphish").html("");
-                           $("#price_area").html(msg);
-                           //$("#schedule").data.theme("b");
-                           });
-    }
-    function get_price1(){
-            $.ajax({
-                   url: "http://localhost:8080/examples/list2.html",
-                   type: "POST",
-                   dataType: "html"
-                   }).done(function( msg ) {
-                           //$(".nav-glyphish").html("");
-                           $("#price_area").html(msg);
-                           //$("#schedule").data.theme("b");
-                           });
-    }
-    	
-    
     
 </script>
-<table>
-    <tr>
-        <td><input type="text" name="from" value="Start:" id="from" onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" onFocus="if (value =='Start:'){value =''}" onBlur="if (value ==''){value='Start:'}" /></td>
-        <td>&nbsp;&nbsp;<a href="javascript:;" onclick="set_from_current()"><img src="images/193-location-arrow.png"/></a></td>
-    </tr>
-    <tr>
-        
-        <td></td><td></td></tr>
-    <tr>
-        <td><input type="text" name="to" value="End:" id="to" onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" onFocus="if (value =='End:'){value =''}" onBlur="if (value ==''){value='End:'}""  /></td>
-            <td>&nbsp;&nbsp;<a href="javascript:;" onclick="set_to_current()"><img src="images/193-location-arrow.png"/></a></td>
-            </tr>
-            </table>
-<br/>
-<div id="price_area">
-<fieldset data-role="controlgroup"  data-type="horizontal" style="float:center;">
-    <a id="full_fare" onclick="get_price()" data-ajax="false" data-inline="true" href="#" data-role="button">Full Fare</a>
-    <a id="half_fare" onclick="get_price1()" data-ajax="false" data-inline="true" href="#" data-role="button">Half Fare</a>
-        
-    &nbsp;&nbsp;&nbsp;&nbsp;
-</fieldset>
 
-
-<br/>
-
-
-<br/><br/><br/>
+<ul data-role="listview" data-inset="true" data-filter="true">
+    <li><a onclick="scheduleResult()" rel="external" >71A(FreePort Road)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >71B(Mount Royal)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >71C(Troy Hill)</a></li>
+    <li><a onclick="scheduleResult()" rel="external">71DC(Spring Hill)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >61A(Spring Garden)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >61B(Fine View)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >61C(Perrysvile)</a></li>
+    <li><a onclick="scheduleResult()" rel="external">61D(Bellevue)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >64(Ohio Valey)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >75A(Brighton)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >75B(Kennedy)</a></li>
+    <li><a onclick="scheduleResult()" rel="external">75C(McCoy)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >28X(AirPort Flyer)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >71D(Murray)</a></li>
+    <li><a onclick="scheduleResult()" rel="external" >64(Hamilton)</a></li>
+</ul>
 
             <div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
             <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
             <div data-role="navbar" class="nav-glyphish" data-grid="c">
             <ul>
-			<li loadPageDirection()><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
+			<li onclick= "loadPageDirection()"><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
 			<li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" >Transit Tracker</a></li>
-			<li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
+			<li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" data-theme="b">Schedule</a></li>
 			<li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
             </ul>
             </div>
