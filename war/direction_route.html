@@ -1,80 +1,136 @@
-
-    <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    
-    <script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
-    <script type="text/javascript"  src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+<script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function() {
 		var url = document.URL;
 		var msg = 'Three routes to ';
-		var params = url.substr(url.indexOf('?')+1).split('&');
+		var params = url.substr(url.indexOf('?') + 1).split('&');
 		var from = params[0].split('=')[1];
 		var to = params[1].split('=')[1];
 		var time = params[2].split('=')[1];
 		msg += to + ' from ' + from + ' in ' + time;
 		$('#route-info').html(msg);
 	});
- 
 </script>
+<style>
 
+td.border_bottom {
+  border-bottom:1pt solid black;
+}
+</style>
+<div data-role="content">
+	<h3 id="route-info"></h3>
+	<ul data-role="listview" data-inset="true" data-filter="true">
+		<li><a href="http://ebiztask13.appspot.com/direction_detail.html"
+			rel="external">
+				<table border=0>
+					<tr>
+					<tr>
+						<td style="float: center; font-size: 1.3em;" colspan="3">71 C
+						</td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							8 Mins</td>
+					</tr>
+					<tr>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="red"> 12:01 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="red"> 12:31 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="blue"> 12:41 PM </font></td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							$ 3.75</td>
+					</tr>
+					<tr>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="red"> I </font></td>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="red"> I </font></td>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="blue"> O </font></td>
+					</tr>
+				</table>
+		</a></li>
 
+		<li><a href="http://ebiztask13.appspot.com/direction_detail.html"
+			rel="external">
+				<table border=0>
+					<tr>
+					<tr>
+						<td style="float: center; font-size: 1.3em;" colspan="3">71 D
+						</td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							15 Mins</td>
+					</tr>
+					<tr>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="red"> 12:23 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="blue"> 12:42 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="blue"> 1:11 PM </font></td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							$ 2.50</td>
+					</tr>
+					<tr>
+						<td  style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="red"> I </font></td>
+						<td  style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="blue"> I </font></td>
+						<td  style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="blue"> O </font></td>
+					</tr>
+				</table>
+		</a></li>
 
-    <div data-role="content">
-        <h3 id="route-info"></h3>
-        
-        <ul data-role="listview" data-inset="true" data-filter="true">
-            <li><a href="http://ebiztask13.appspot.com/direction_detail.html" rel="external" >
-                <table>
-                    <tr>
-                        <td> 71C </td>
-                        <td style="float:center;"> 7 mins </td>
-                    </tr>
-                    <tr>
-                        <td> 12:01pm-12:09pm &nbsp</td>
-                        <td style="float:center;"> $ 3.75 </td>
-                    </tr>
-                </table>
-            </a></li>
-            <li><a href="direction_detail.html" rel="external" >
-                <table>
-                    <tr>
-                        <td> 71D </td>
-                        <td style="float:center;"> 8 mins </td>
-                    </tr>
-                    <tr>
-                        <td> 12:11pm-12:19pm &nbsp</td>
-                        <td style="float:center;"> $ 2.5 </td>
-                    </tr>
-                </table>
-            </a></li>
-                
-            <li><a href="direction_detail.html" rel="external" >
-                <table>
-                    <tr>
-                        <td> 28X </td>
-                        <td style="float:center;"> 11 mins </td>
-                    </tr>
-                    <tr>
-                        <td> 12:03pm-12:14pm &nbsp </td>
-                        <td style="float:center;"> $ 3.75 </td>
-                    </tr>
-                </table>
-            </a></li>
-        </ul>
-        
-    </div>
-    
-	
-	<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
-	    <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
-		<div data-role="navbar" class="nav-glyphish" data-grid="c">
-            <ul>
-                <li onclick="loadPageDirection()"><a href="#" id="direction" data-icon="custom" data-theme="b">Trip Planner</a></li>
-                <li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" >Transit Tracker</a></li>
-                <li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
-                <li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
-            </ul>
-		</div>
+		<li><a href="http://ebiztask13.appspot.com/direction_detail.html"
+			rel="external">
+				<table border=0>
+					<tr>
+					<tr>
+						<td style="float: center; font-size: 1.3em;" colspan="3">28 X
+						</td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							20 Mins</td>
+					</tr>
+					<tr>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="blue"> 12:01 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="red"> 12:31 PM </font></td>
+						<td class="border_bottom" style="float: center; font-size: 0.8em;"><font
+							color="blue"> 12:41 PM </font></td>
+						<td style="float: center; font-size: 1.3em; padding-left: 50px">
+							$ 2.75</td>
+					</tr>
+					<tr>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="blue"> I </font></td>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="red"> I </font></td>
+						<td style="float: center; font-size: 0.8em; text-align: center;"><font
+							color="blue"> O </font></td>
+					</tr>
+				</table>
+		</a></li>
+	</ul>
+</div>
+<div data-role="footer" data-position="fixed"
+	class="nav-glyphish ui-footer-fixed">
+	<!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
+	<div data-role="navbar" class="nav-glyphish" data-grid="c">
+		<ul>
+			<li onclick="loadPageDirection()"><a href="#" id="direction"
+				data-icon="custom" data-theme="b">Trip Planner</a></li>
+			<li onclick="loadPageSchedule()"><a href="#" id="schedule"
+				data-icon="custom">Transit Tracker</a></li>
+			<li onclick="loadPageFare()"><a href="#" id="fare"
+				data-icon="custom">Schedule</a></li>
+			<li onclick="loadPageMyTrip()"><a href="#" id="my_trips"
+				data-icon="custom">My Trips</a></li>
+		</ul>
 	</div>
+</div>
