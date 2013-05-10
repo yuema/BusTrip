@@ -1,28 +1,38 @@
 
-    <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    
-    <script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
-    <script type="text/javascript"  src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+
+<script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
 <script>
-    function realtime_change(){
-    	if($('#realtime_location').attr('checked') == 'checked'){
-    		$('#next_page').attr('href', 'schedule-realtime.html');
-    		$('#days').hide();
-    	}else{
-    		$('#next_page').attr('href', 'schedule-result.html');
-    		$('#days').show();
-    	}
-    }
 
+function set_from_current() {
+	$('#from').val('My Location');
+}
+
+function set_to_current() {
+	$('#to').val('My Location');
+}
+
+function switch_from_to() {
+	var tmp = $('#from').val();
+	$('#from').val($('#to').val());
+	$('#to').val(tmp);
+}
+
+	function realtime_change() {
+		if ($('#realtime_location').attr('checked') == 'checked') {
+			$('#next_page').attr('href', 'schedule-realtime.html');
+			$('#days').hide();
+		} else {
+			$('#next_page').attr('href', 'schedule-result.html');
+			$('#days').show();
+		}
+	}
 </script>
-
-
-
-	<div data-role="content">
-	
-		<label for="select-choice-0" class="select">Bus Route</label>
+<div data-role="content">
+	<!-- 		<label for="select-choice-0" class="select">Bus Route</label>
 		<select name="select-choice-0" id="select-choice-1">
 		   <option value="61A">61A</option>
 		   <option value="61B">61B</option>
@@ -33,59 +43,78 @@
 		   <option value="71C">71C</option>
 		   <option value="71D">71D</option>
 		   <option value="28X">28X</option>
-		</select>
-		
-		
-		<br/>
-        <label for="radio-choice-1" class="select">Direction</label>
-		<fieldset data-role="controlgroup"  data-type="horizontal">
-		     	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-		     	<label for="radio-choice-1">Inbound</label>
-		        
-		     	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-		     	<label for="radio-choice-2">Outbound</label>
-		     	
-		     	&nbsp;&nbsp;&nbsp;&nbsp;
+		</select> -->
+	<br />
+	<table border = 0>
+		<tr>
+			<td width="100px"><label for="radio-choice-1" class="select">Direction</label>
+			</td>
+			<td width="250px" ><fieldset data-role="controlgroup" data-type="horizontal">
+					<input type="radio" name="radio-choice-1" id="radio-choice-1"
+						value="choice-1" checked="checked" /> <label for="radio-choice-1">Inbound</label>
 
-		     	<!--  <a href="" data-role="button" data-icon="info" data-iconpos="notext">Info</a>-->
-		</fieldset>
-		
-		<!--<a href="" data-role="button" data-icon="info" data-iconpos="notext">Info</a>-->
-		
-		
-		<label for="select-choice-1" class="select">Bus Stop</label>
-		<select name="select-choice-1" id="select-choice-1">
-		   <option value="upitt">University of Pittsburgh</option>
-		   <option value="hamberg">Hamberger Hall</option>
-		   <option value="cmu">Carnegie Mellon</option>
-		   <option value="forbes">Forbes Ave</option>
-		</select>
-		
-		
-		<br/>
-		
-		<div style="float:center;">
-		<a id="next_page" data-ajax="false" data-inline="true" onclick="scheduleResult()" data-role="button" data-icon="search" data-theme="b">Track</a>
-	    </div>
-		
-	</div>
-    
-	<div style="text-decoration: ">
-					<a href="www.audible.com/Free-Audiobook" target="_blank"> <strong>Download a Free
-							Audiobook</strong>
-					</a> <br /><small>No Shipping, No Waiting. Try Now!<br>Listen on iPod/
-					mp3/ smartphone <br>www.audible.com</small>
+					<input type="radio" name="radio-choice-1" id="radio-choice-2"
+						value="choice-2" /> <label for="radio-choice-2">Outbound</label>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+
+					<!--  <a href="" data-role="button" data-icon="info" data-iconpos="notext">Info</a>-->
+				</fieldset></td>
+		</tr>
+		<!-- <tr>
+			<td><label for="select-choice-1" class="select">Bus Stop</label></td>
+			<td><select name="select-choice-1" id="select-choice-1">
+					<option value="upitt">University of Pittsburgh</option>
+					<option value="hamberg">Hamberger Hall</option>
+					<option value="cmu">Carnegie Mellon</option>
+					<option value="forbes">Forbes Ave</option>
+			</select></td>
+		</tr> -->
+		<tr>
+		<td><label for="select-choice-1" class="select">Bus Stop</label></td>
+			<td><input type="text" name="from" value="" id="from"
+				onmouseover="this.style.borderColor='#FF6600'"
+				onmouseout="this.style.borderColor=''"
+				onFocus="if (value ==''){value =''}"
+				onBlur="if (value ==''){value=''}" /></td><td><a href="javascript:;"
+				onclick="set_from_current()"><img
+					src="images/193-location-arrow.png" /></a></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<div style="float: center;">
+					<a id="next_page" data-ajax="false" data-inline="true"
+						onclick="scheduleResult()" data-role="button" data-icon="search"
+						data-theme="b">Track</a>
 				</div>
-	
-<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
-    <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
-    <div data-role="navbar" class="nav-glyphish" data-grid="c">
-        <ul>
-            <li onclick="loadPageDirection()"><a href="#" id="direction" data-icon="custom" >Trip Planner</a></li>
-            <li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" data-theme="b">Transit Tracker</a></li>
-            <li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
-            <li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
-        </ul>
-    </div>
+			</td>
+		</tr>
+	</table>
+</div>
+<br />
+<br />
+<div style="text-decoration:">
+	<a href="www.audible.com/Free-Audiobook" target="_blank"> <strong>Download
+			a Free Audiobook</strong>
+	</a> <br /> <small>No Shipping, No Waiting. Try Now!<br>Listen
+		on iPod/ mp3/ smartphone <br>www.audible.com
+	</small>
+</div>
+
+<div data-role="footer" data-position="fixed"
+	class="nav-glyphish ui-footer-fixed">
+	<!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
+	<div data-role="navbar" class="nav-glyphish" data-grid="c">
+		<ul>
+			<li onclick="loadPageDirection()"><a href="#" id="direction"
+				data-icon="custom">Trip Planner</a></li>
+			<li onclick="loadPageSchedule()"><a href="#" id="schedule"
+				data-icon="custom" data-theme="b">Transit Tracker</a></li>
+			<li onclick="loadPageFare()"><a href="#" id="fare"
+				data-icon="custom">Schedule</a></li>
+			<li onclick="loadPageMyTrip()"><a href="#" id="my_trips"
+				data-icon="custom">My Trips</a></li>
+		</ul>
+	</div>
 </div>
 

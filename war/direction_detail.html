@@ -5,186 +5,253 @@
 <link rel="stylesheet" href="css/main.css" />
 
 <script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
-<script type="text/javascript"  src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
 
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <style type="text/css">
-  /*It's required by google map api that all parent elements should have height of 100%, 
+/*It's required by google map api that all parent elements should have height of 100%, 
   or else the canvas height will drop to 0. */
-  html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-  #page { height: 100%; }
-  #content { height: 100%;}
-  #map_canvas { width:100%; height: 45% }
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0
+}
+
+#page {
+	height: 100%;
+}
+
+#content {
+	height: 100%;
+}
+
+#map_canvas {
+	width: 100%;
+	height: 45%
+}
+
+li.this:hover {
+	background: #fff;
+	text-decoration: underline;
+	background-color: #EBF5FF;
+}
 </style>
 <script type="text/javascript"
-  src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCT3zgwEQlTKX6hEzFkCrmCVirUhi8QP0s&sensor=true&v=3.8">
+	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCT3zgwEQlTKX6hEzFkCrmCVirUhi8QP0s&sensor=true&v=3.8">
+	
 </script>
 <script type="text/javascript">
-  
-function save_trip(){
-    alert("Trip is saved");
-}
-
-
-function map_change(){
-	if($('#show_map').attr('checked') == 'checked'){
-		$('#map_choice').hide();
-		$('#map_canvas').show();
-		var myOptions = {
-	      center: new google.maps.LatLng(40.444025,-79.942843),
-	      zoom: 15,
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
-	    var map = new google.maps.Map(document.getElementById("map_canvas"),
-	        myOptions);
+	function save_trip() {
+		alert("Trip is saved");
 	}
-}
-    function loadPageSchedule(){
-        
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/schedule.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#schedule").data.theme("b");
-                       });
-        
-    }
-    function loadPageDirectionResult() {
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/direction_route.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#direction").data.theme("b");
-                       });
-    }
-    
-    function scheduleResult() {
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/schedule-result.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#direction").data.theme("b");
-                       });
-    }
-    function loadPageDirection(){
-        
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/direction.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#direction").data.theme("b");
-                       });
-        
-    }
-    
-    function loadPageFare(){
-        
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/fare.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#fare").data.theme("b");
-                       });
-        
-    }
-    
-    function loadPageMyTrip(){
-        
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/myTrip.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#my_trips").data.theme("b");
-                       });
-        
-    }
-    
-    function loadPageScheduleResult(){
-        
-        $.ajax({
-               url: "http://ebiztask13.appspot.com/schedule-result.html",
-               type: "POST",
-               dataType: "html"
-               }).done(function( msg ) {
-                       //$(".nav-glyphish").html("");
-                       $("#content").html(msg);
-                       //$("#schedule").data.theme("b");
-                       });
-        
-    }
 
+	function map_change() {
+		if ($('#show_map').attr('checked') == 'checked') {
+			$('#map_choice').hide();
+			$('#map_canvas').show();
+			var myOptions = {
+				center : new google.maps.LatLng(40.444025, -79.942843),
+				zoom : 15,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map(
+					document.getElementById("map_canvas"), myOptions);
+		}
+	}
+	function loadPageSchedule() {
+
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/schedule.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#schedule").data.theme("b");
+		});
+
+	}
+	function loadPageDirectionResult() {
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/direction_route.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#direction").data.theme("b");
+		});
+	}
+
+	function scheduleResult() {
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/schedule-result.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#direction").data.theme("b");
+		});
+	}
+	function loadPageDirection() {
+
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/direction.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#direction").data.theme("b");
+		});
+
+	}
+
+	function loadPageFare() {
+
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/fare.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#fare").data.theme("b");
+		});
+
+	}
+
+	function loadPageMyTrip() {
+
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/myTrip.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#my_trips").data.theme("b");
+		});
+
+	}
+
+	function loadPageScheduleResult() {
+
+		$.ajax({
+			url : "http://ebiztask13.appspot.com/schedule-result.html",
+			type : "POST",
+			dataType : "html"
+		}).done(function(msg) {
+			//$(".nav-glyphish").html("");
+			$("#content").html(msg);
+			//$("#schedule").data.theme("b");
+		});
+
+	}
 </script>
 
 </head>
 
 <body>
-<div data-role="page" id="page">
-    <div data-role="header" data-position="fixed">
-		<h1>Trip Planner</h1>
-	</div>
-	
-	<div data-role="content" id="content">
-	    <h4 id="route-detail">Walk to 5th & Aiken, Take 71D, Arrive at Forbes&Morewood, walk to CMU.</h4>
-	    
-	    <div  data-role="fieldcontain" id="map_choice">
-		 	<fieldset data-role="controlgroup">
-				<input type="checkbox" name="show_map" id="show_map" onchange="map_change()"/>
-				<label for="show_map">Show the Map</label>
-		    </fieldset>
-		    <br/>
-		    <br/>
-		    <br/>
+	<div data-role="page" id="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Trip Planner</h1>
 		</div>
-	    
-	    <div style="display:none;" id="map_canvas"></div>
-	   
-	    <br/>
-	    <span>
-	        <a style="float:left;" data-inline="true" id="save-trip" onclick="save_trip()" href="javascript:;" data-role="button"  data-theme="b">Save Trip</a>
-	        <a data-inline="true" href="http://ebiztask13.appspot.com/index.html" data-role="button" data-theme="b">New Search</a>
-	    </span>
 
-	
-    <div style="text-decoration: ">
-					<a href="www.audible.com/Free-Audiobook" target="_blank"> <strong>Download a Free
-							Audiobook</strong>
-					</a> <br /><small>No Shipping, No Waiting. Try Now!<br>Listen on iPod/
-					mp3/ smartphone <br>www.audible.com</small>
+		<div data-role="content" id="content">
+			<!-- <h4 id="route-detail">Walk to 5th & Aiken, Take 71D, Arrive at
+				Forbes&Morewood, walk to CMU.</h4> -->
+			<table width="100%" cellpadding="1" cellspacing="3" border = 0>
+				<tr>
+					<td>Driving directions to <b>PPG Place-Management Office</b></td>
+					</tr><tr>
+					<td>
+						<div data-role="fieldcontain" id="map_choice">
+							<fieldset data-role="controlgroup">
+								<input type="checkbox" name="show_map" id="show_map"
+									onchange="map_change()" /> <label for="show_map">Show
+									the Map</label>
+							</fieldset>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table border = 0>
+				<tr />
+				<tr>
+					<td><b> 5506 Fifth Ave,<br /> Pittsburgh, PA 15232
+					</b></td>
+				</tr>
+				<tr>
+					<td>
+						<ol>
+							<li class="this" style="margin-top: 1em;">Head southwest on
+								Fifth Avenue toward Bellefonte St</li>
+							<li class="this" style="margin-top: 1em;">Turn left to stay
+								on Fifth Avenue</li>
+							<li class="this" style="margin-top: 1em;">Slight left to
+								merge onto PA-885 N/Boulevard of the Allies toward I-579/I-376 W</li>
+							<li class="this" style="margin-top: 1em;">Merge onto I-376 W
+								via the ramp to Downtown</li>
+							<li class="this" style="margin-top: 1em;">Take exit 70D on
+								the left to merge onto Stanwix St</li>
+							<li class="this" style="margin-top: 1em;">Turn right onto
+								Fourth Avenue</li>
+							<li class="this" style="margin-top: 1em;">Sharp right to
+								stay on Fourth Avenue Destination will be on the left</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td><b> PPG Place-Management Office<br /> 3 PPG Pl 410
+							Marker St<br /> Pittsburgh, PA 15222
+					</b></td>
+				</tr>
+			</table>
+			<br />
+			<div style="display: none;" id="map_canvas"></div>
+
+			<br /> <span> <a style="float: left;" data-inline="true"
+				id="save-trip" onclick="save_trip()" href="javascript:;"
+				data-role="button" data-theme="b">Save Trip</a> <a
+				data-inline="true" href="http://ebiztask13.appspot.com"
+				data-role="button" data-theme="b">New Search</a>
+			</span>
+
+
+			<div style="text-decoration:">
+				<a href="www.audible.com/Free-Audiobook" target="_blank"> <strong>Download
+						a Free Audiobook</strong>
+				</a> <br /> <small>No Shipping, No Waiting. Try Now!<br>Listen
+					on iPod/ mp3/ smartphone <br>www.audible.com
+				</small>
+			</div>
+
+			<div data-role="footer" data-position="fixed"
+				class="nav-glyphish ui-footer-fixed">
+				<!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
+				<div data-role="navbar" class="nav-glyphish" data-grid="c">
+					<ul>
+						<li onclick="loadPageDirection()"><a href="#" id="direction"
+							data-icon="custom" data-theme="b">Trip Planner</a></li>
+						<li onclick="loadPageSchedule()"><a href="#" id="schedule"
+							data-icon="custom">Transit Tracker</a></li>
+						<li onclick="loadPageFare()"><a href="#" id="fare"
+							data-icon="custom">Schedule</a></li>
+						<li onclick="loadPageMyTrip()"><a href="#" id="my_trips"
+							data-icon="custom">My Trips</a></li>
+					</ul>
 				</div>
-	
-	<div data-role="footer" data-position="fixed" class="nav-glyphish ui-footer-fixed">
-        <!-- We want four columns, so set data-grid="c", for three columns:"b", two columns:"a" etc -->
-        <div data-role="navbar" class="nav-glyphish" data-grid="c">
-            <ul>
-                <li onclick="loadPageDirection()"><a href="#" id="direction" data-icon="custom" data-theme="b">Trip Planner</a></li>
-                <li onclick="loadPageSchedule()"><a href="#" id="schedule" data-icon="custom" >Transit Tracker</a></li>
-                <li onclick="loadPageFare()"><a href="#" id="fare" data-icon="custom" >Schedule</a></li>
-                <li onclick="loadPageMyTrip()"><a href="#" id="my_trips" data-icon="custom">My Trips</a></li>
-            </ul>
-        </div>
-    </div>
+			</div>
 
-    </div>
-</div>
+		</div>
+	</div>
 </body>
 </html>
